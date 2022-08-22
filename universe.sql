@@ -1,636 +1,493 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2639
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red95\green112\blue168;\red31\green31\blue49;\red215\green215\blue219;
-\red229\green168\blue255;\red139\green255\blue255;\red254\green185\blue125;\red200\green241\blue153;\red255\green255\blue255;
-}
-{\*\expandedcolortbl;;\cssrgb\c44706\c52157\c71765;\cssrgb\c16471\c16471\c25098;\cssrgb\c87451\c87451\c88627;
-\cssrgb\c92157\c73333\c100000;\cssrgb\c60000\c100000\c100000;\cssrgb\c100000\c77255\c56078;\cssrgb\c81961\c94510\c66275;\cssrgb\c100000\c100000\c100000;
-}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+--
+-- PostgreSQL database dump
+--
 
-\f0\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- PostgreSQL database dump\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\cf2 \cb3 \strokec2 -- Dumped from database version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Dumped by pg_dump version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  statement_timeout \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 lock_timeout\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  idle_in_transaction_session_timeout \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  client_encoding \cf6 \strokec6 =\cf4 \strokec4  \cf8 \strokec8 'UTF8'\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  standard_conforming_strings \cf6 \strokec6 =\cf4 \strokec4  \cf5 \strokec5 on\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 set_config\cf4 \strokec4 (\cf8 \strokec8 'search_path'\cf4 \strokec4 , \cf8 \strokec8 ''\cf4 \strokec4 , false);\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  check_function_bodies \cf6 \strokec6 =\cf4 \strokec4  false;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  xmloption \cf6 \strokec6 =\cf4 \strokec4  content;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  client_min_messages \cf6 \strokec6 =\cf4 \strokec4  warning;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  row_security \cf6 \strokec6 =\cf4 \strokec4  \cf5 \strokec5 off\cf4 \strokec4 ;\cb1 \
-\
-\cf5 \cb3 \strokec5 DROP\cf4 \strokec4  \cf5 \strokec5 DATABASE\cf4 \strokec4  universe;\cb1 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: universe; Type: DATABASE; Schema: -; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 DATABASE\cf4 \strokec4  universe \cf5 \strokec5 WITH\cf4 \strokec4  TEMPLATE \cf6 \strokec6 =\cf4 \strokec4  template0 \cf5 \strokec5 ENCODING\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  \cf8 \strokec8 'UTF8'\cf4 \strokec4  LC_COLLATE \cf6 \strokec6 =\cf4 \strokec4  \cf8 \strokec8 'C.UTF-8'\cf4 \strokec4  LC_CTYPE \cf6 \strokec6 =\cf4 \strokec4  \cf8 \strokec8 'C.UTF-8'\cf4 \strokec4 ;\cb1 \
-\
-\
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 DATABASE\cf4 \strokec4  universe \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3 \\\cf5 \strokec5 connect\cf4 \strokec4  universe\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  statement_timeout \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 lock_timeout\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  idle_in_transaction_session_timeout \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  client_encoding \cf6 \strokec6 =\cf4 \strokec4  \cf8 \strokec8 'UTF8'\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  standard_conforming_strings \cf6 \strokec6 =\cf4 \strokec4  \cf5 \strokec5 on\cf4 \strokec4 ;\cb1 \
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 set_config\cf4 \strokec4 (\cf8 \strokec8 'search_path'\cf4 \strokec4 , \cf8 \strokec8 ''\cf4 \strokec4 , false);\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  check_function_bodies \cf6 \strokec6 =\cf4 \strokec4  false;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  xmloption \cf6 \strokec6 =\cf4 \strokec4  content;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  client_min_messages \cf6 \strokec6 =\cf4 \strokec4  warning;\cb1 \
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  row_security \cf6 \strokec6 =\cf4 \strokec4  \cf5 \strokec5 off\cf4 \strokec4 ;\cb1 \
-\
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  default_tablespace \cf6 \strokec6 =\cf4 \strokec4  \cf8 \strokec8 ''\cf4 \strokec4 ;\cb1 \
-\
-\cf5 \cb3 \strokec5 SET\cf4 \strokec4  default_table_access_method \cf6 \strokec6 =\cf4 \strokec4  heap;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4  (\cb1 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     asteroid_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     \cf5 \strokec5 name\cf4 \strokec4  \cf5 \strokec5 character\cf4 \strokec4  varying(\cf7 \strokec7 20\cf4 \strokec4 ),\cb1 \
-\cb3     planet_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \cb1 \strokec4 \
-\cb3 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid_asteroid_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid_asteroid_id_seq\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 AS\cf4 \strokec4  \cf5 \strokec5 integer\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 START\cf4 \strokec4  \cf5 \strokec5 WITH\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     INCREMENT \cf5 \strokec5 BY\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MINVALUE\cb1 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MAXVALUE\cb1 \
-\cb3     CACHE \cf7 \strokec7 1\cf4 \strokec4 ;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid_asteroid_id_seq\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid_asteroid_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid_asteroid_id_seq\cf4 \strokec4  OWNED \cf5 \strokec5 BY\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4 .asteroid_id;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  (\cb1 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     galaxy_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     \cf5 \strokec5 name\cf4 \strokec4  \cf5 \strokec5 character\cf4 \strokec4  varying(\cf7 \strokec7 30\cf4 \strokec4 ) \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     age_in_millions_of_years \cf5 \strokec5 integer\cf4 \strokec4 ,\cb1 \
-\cb3     distance_from_earth \cf5 \strokec5 integer\cf4 \strokec4 ,\cb1 \
-\cb3     apparent_magnitude \cf5 \strokec5 numeric\cf4 \strokec4 (\cf7 \strokec7 3\cf4 \strokec4 ,\cf7 \strokec7 1\cf4 \strokec4 ) \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     constellation \cf5 \strokec5 character\cf4 \strokec4  varying(\cf7 \strokec7 20\cf4 \strokec4 )\cb1 \
-\cb3 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy_galaxy_id_seq\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 AS\cf4 \strokec4  \cf5 \strokec5 integer\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 START\cf4 \strokec4  \cf5 \strokec5 WITH\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     INCREMENT \cf5 \strokec5 BY\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MINVALUE\cb1 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MAXVALUE\cb1 \
-\cb3     CACHE \cf7 \strokec7 1\cf4 \strokec4 ;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy_galaxy_id_seq\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy_galaxy_id_seq\cf4 \strokec4  OWNED \cf5 \strokec5 BY\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4 .galaxy_id;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  (\cb1 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     moon_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     \cf5 \strokec5 name\cf4 \strokec4  \cf5 \strokec5 character\cf4 \strokec4  varying(\cf7 \strokec7 20\cf4 \strokec4 ),\cb1 \
-\cb3     planet_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     has_water \cf5 \strokec5 boolean\cf4 \strokec4 ,\cb1 \
-\cb3     atmosphere \cf5 \strokec5 text\cf4 \cb1 \strokec4 \
-\cb3 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon_moon_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon_moon_id_seq\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 AS\cf4 \strokec4  \cf5 \strokec5 integer\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 START\cf4 \strokec4  \cf5 \strokec5 WITH\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     INCREMENT \cf5 \strokec5 BY\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MINVALUE\cb1 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MAXVALUE\cb1 \
-\cb3     CACHE \cf7 \strokec7 1\cf4 \strokec4 ;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon_moon_id_seq\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon_moon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon_moon_id_seq\cf4 \strokec4  OWNED \cf5 \strokec5 BY\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4 .moon_id;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  (\cb1 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     planet_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     \cf5 \strokec5 name\cf4 \strokec4  \cf5 \strokec5 character\cf4 \strokec4  varying(\cf7 \strokec7 20\cf4 \strokec4 ),\cb1 \
-\cb3     \cf5 \strokec5 description\cf4 \strokec4  \cf5 \strokec5 text\cf4 \strokec4 ,\cb1 \
-\cb3     has_life \cf5 \strokec5 boolean\cf4 \strokec4 ,\cb1 \
-\cb3     is_spherical \cf5 \strokec5 boolean\cf4 \strokec4 ,\cb1 \
-\cb3     star_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \cb1 \strokec4 \
-\cb3 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet_planet_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet_planet_id_seq\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 AS\cf4 \strokec4  \cf5 \strokec5 integer\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 START\cf4 \strokec4  \cf5 \strokec5 WITH\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     INCREMENT \cf5 \strokec5 BY\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MINVALUE\cb1 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MAXVALUE\cb1 \
-\cb3     CACHE \cf7 \strokec7 1\cf4 \strokec4 ;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet_planet_id_seq\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet_planet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet_planet_id_seq\cf4 \strokec4  OWNED \cf5 \strokec5 BY\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4 .planet_id;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  (\cb1 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     star_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     \cf5 \strokec5 name\cf4 \strokec4  \cf5 \strokec5 character\cf4 \strokec4  varying(\cf7 \strokec7 20\cf4 \strokec4 ),\cb1 \
-\cb3     absolute_magnitude \cf5 \strokec5 numeric\cf4 \strokec4 (\cf7 \strokec7 8\cf4 \strokec4 ,\cf7 \strokec7 5\cf4 \strokec4 ),\cb1 \
-\cb3     galaxy_id \cf5 \strokec5 integer\cf4 \strokec4  \cf5 \strokec5 NOT\cf4 \strokec4  \cf5 \strokec5 NULL\cf4 \strokec4 ,\cb1 \
-\cb3     distance_in_light_years \cf5 \strokec5 integer\cf4 \cb1 \strokec4 \
-\cb3 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star_star_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 CREATE\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star_star_id_seq\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 AS\cf4 \strokec4  \cf5 \strokec5 integer\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 START\cf4 \strokec4  \cf5 \strokec5 WITH\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     INCREMENT \cf5 \strokec5 BY\cf4 \strokec4  \cf7 \strokec7 1\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MINVALUE\cb1 \
-\cb3     \cf5 \strokec5 NO\cf4 \strokec4  MAXVALUE\cb1 \
-\cb3     CACHE \cf7 \strokec7 1\cf4 \strokec4 ;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star_star_id_seq\cf4 \strokec4  \cf5 \strokec5 OWNER\cf4 \strokec4  \cf5 \strokec5 TO\cf4 \strokec4  freecodecamp;\cb1 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star_star_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 SEQUENCE\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star_star_id_seq\cf4 \strokec4  OWNED \cf5 \strokec5 BY\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4 .star_id;\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid asteroid_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4  \cf5 \strokec5 ALTER\cf4 \strokec4  COLUMN asteroid_id \cf5 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 DEFAULT\cf4 \strokec4  nextval(\cf8 \strokec8 'public.asteroid_asteroid_id_seq'\cf4 \strokec4 ::regclass);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 ALTER\cf4 \strokec4  COLUMN galaxy_id \cf5 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 DEFAULT\cf4 \strokec4  nextval(\cf8 \strokec8 'public.galaxy_galaxy_id_seq'\cf4 \strokec4 ::regclass);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon moon_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 ALTER\cf4 \strokec4  COLUMN moon_id \cf5 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 DEFAULT\cf4 \strokec4  nextval(\cf8 \strokec8 'public.moon_moon_id_seq'\cf4 \strokec4 ::regclass);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet planet_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 ALTER\cf4 \strokec4  COLUMN planet_id \cf5 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 DEFAULT\cf4 \strokec4  nextval(\cf8 \strokec8 'public.planet_planet_id_seq'\cf4 \strokec4 ::regclass);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star star_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 ALTER\cf4 \strokec4  COLUMN star_id \cf5 \strokec5 SET\cf4 \strokec4  \cf5 \strokec5 DEFAULT\cf4 \strokec4  nextval(\cf8 \strokec8 'public.star_star_id_seq'\cf4 \strokec4 ::regclass);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Data for Name: asteroid; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 1\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 3\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 1\cf4 \strokec4 , \cf8 \strokec8 'Milky Way'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf6 \strokec6 -\cf7 \strokec7 6\cf4 \strokec4 .\cf7 \strokec7 5\cf4 \strokec4 , \cf8 \strokec8 'Sagittarius'\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 , \cf8 \strokec8 'Large Magellanic Cloud'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 9\cf4 \strokec4 , \cf8 \strokec8 'Dorado/Mensa'\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 3\cf4 \strokec4 , \cf8 \strokec8 'Small Magellanic Cloud'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 7\cf4 \strokec4 , \cf8 \strokec8 'Tucana'\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 4\cf4 \strokec4 , \cf8 \strokec8 'Andromeda Galaxy'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 .\cf7 \strokec7 4\cf4 \strokec4 , \cf8 \strokec8 'Andromeda'\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 5\cf4 \strokec4 , \cf8 \strokec8 'Triangulum Galaxy'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 .\cf7 \strokec7 7\cf4 \strokec4 , \cf8 \strokec8 'Triangulum'\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 6\cf4 \strokec4 , \cf8 \strokec8 'Centaurus Galaxy'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 .\cf7 \strokec7 8\cf4 \strokec4 , \cf8 \strokec8 'Centaurus'\cf4 \strokec4 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 7\cf4 \strokec4 , \cf8 \strokec8 'Moon'\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 8\cf4 \strokec4 , \cf8 \strokec8 'Europa'\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 9\cf4 \strokec4 , \cf8 \strokec8 'Ganymede'\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 10\cf4 \strokec4 , \cf8 \strokec8 'Titan'\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 11\cf4 \strokec4 , \cf8 \strokec8 'lo'\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 12\cf4 \strokec4 , \cf8 \strokec8 'Callisto'\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 13\cf4 \strokec4 , \cf8 \strokec8 'Amalthea'\cf4 \strokec4 , \cf7 \strokec7 7\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 14\cf4 \strokec4 , \cf8 \strokec8 'Mimas'\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 15\cf4 \strokec4 , \cf8 \strokec8 'Adrastea'\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 16\cf4 \strokec4 , \cf8 \strokec8 'Encladus'\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 17\cf4 \strokec4 , \cf8 \strokec8 'Himalia'\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 18\cf4 \strokec4 , \cf8 \strokec8 'Ananke'\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 19\cf4 \strokec4 , \cf8 \strokec8 'Autonoe'\cf4 \strokec4 , \cf7 \strokec7 7\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 20\cf4 \strokec4 , \cf8 \strokec8 'locaste'\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 21\cf4 \strokec4 , \cf8 \strokec8 'Callirhoe'\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 22\cf4 \strokec4 , \cf8 \strokec8 'Carme'\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 23\cf4 \strokec4 , \cf8 \strokec8 'Hyperion'\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 24\cf4 \strokec4 , \cf8 \strokec8 'Elara'\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 25\cf4 \strokec4 , \cf8 \strokec8 'Cyllene'\cf4 \strokec4 , \cf7 \strokec7 8\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 26\cf4 \strokec4 , \cf8 \strokec8 'Carpo'\cf4 \strokec4 , \cf7 \strokec7 9\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 1\cf4 \strokec4 , \cf8 \strokec8 'Mercury'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 1\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 3\cf4 \strokec4 , \cf8 \strokec8 'Mars'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 1\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 4\cf4 \strokec4 , \cf8 \strokec8 'Venus'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 2\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 5\cf4 \strokec4 , \cf8 \strokec8 'Jupiter'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 2\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 6\cf4 \strokec4 , \cf8 \strokec8 'Saturn'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 3\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 7\cf4 \strokec4 , \cf8 \strokec8 'Uranus'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 3\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 8\cf4 \strokec4 , \cf8 \strokec8 'Neptun'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 4\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 9\cf4 \strokec4 , \cf8 \strokec8 'Earth'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , true, true, \cf7 \strokec7 4\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 10\cf4 \strokec4 , \cf8 \strokec8 'Kepler'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 5\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 11\cf4 \strokec4 , \cf8 \strokec8 'Co-Rot'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 5\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 12\cf4 \strokec4 , \cf8 \strokec8 'Gliese'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 6\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 13\cf4 \strokec4 , \cf8 \strokec8 'HP'\cf4 \strokec4 , \cf5 \strokec5 NULL\cf4 \strokec4 , false, true, \cf7 \strokec7 6\cf4 \strokec4 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 1\cf4 \strokec4 , \cf8 \strokec8 'Sirius'\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 .\cf7 \strokec7 45000\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 , \cf7 \strokec7 9\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 2\cf4 \strokec4 , \cf8 \strokec8 'Canopus'\cf4 \strokec4 , \cf6 \strokec6 -\cf7 \strokec7 5\cf4 \strokec4 .\cf7 \strokec7 53000\cf4 \strokec4 , \cf7 \strokec7 2\cf4 \strokec4 , \cf7 \strokec7 313\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 3\cf4 \strokec4 , \cf8 \strokec8 'Arcturus'\cf4 \strokec4 , \cf6 \strokec6 -\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 31000\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , \cf7 \strokec7 37\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 4\cf4 \strokec4 , \cf8 \strokec8 'Vega'\cf4 \strokec4 , \cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 54000\cf4 \strokec4 , \cf7 \strokec7 4\cf4 \strokec4 , \cf7 \strokec7 25\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 5\cf4 \strokec4 , \cf8 \strokec8 'Capella'\cf4 \strokec4 , \cf6 \strokec6 -\cf7 \strokec7 0\cf4 \strokec4 .\cf7 \strokec7 48000\cf4 \strokec4 , \cf7 \strokec7 5\cf4 \strokec4 , \cf7 \strokec7 42\cf4 \strokec4 );\cb1 \
-\cf5 \cb3 \strokec5 INSERT\cf4 \strokec4  \cf5 \strokec5 INTO\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4  \cf5 \strokec5 VALUES\cf4 \strokec4  (\cf7 \strokec7 6\cf4 \strokec4 , \cf8 \strokec8 'Procyon'\cf4 \strokec4 , \cf7 \strokec7 2\cf4 \strokec4 .\cf7 \strokec7 68000\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , \cf7 \strokec7 11\cf4 \strokec4 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid_asteroid_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 setval\cf4 \strokec4 (\cf8 \strokec8 'public.asteroid_asteroid_id_seq'\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 , true);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 setval\cf4 \strokec4 (\cf8 \strokec8 'public.galaxy_galaxy_id_seq'\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , true);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 setval\cf4 \strokec4 (\cf8 \strokec8 'public.moon_moon_id_seq'\cf4 \strokec4 , \cf7 \strokec7 26\cf4 \strokec4 , true);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 setval\cf4 \strokec4 (\cf8 \strokec8 'public.planet_planet_id_seq'\cf4 \strokec4 , \cf7 \strokec7 13\cf4 \strokec4 , true);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 SELECT\cf4 \strokec4  \cf9 \strokec9 pg_catalog\cf4 \strokec4 .\cf9 \strokec9 setval\cf4 \strokec4 (\cf8 \strokec8 'public.star_star_id_seq'\cf4 \strokec4 , \cf7 \strokec7 6\cf4 \strokec4 , true);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid asteroid_asteroid_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  asteroid_asteroid_id_key \cf5 \strokec5 UNIQUE\cf4 \strokec4  (asteroid_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid asteroid_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  asteroid_pkey \cf5 \strokec5 PRIMARY\cf4 \strokec4  \cf5 \strokec5 KEY\cf4 \strokec4  (asteroid_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy galaxy_galaxy_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  galaxy_galaxy_id_key \cf5 \strokec5 UNIQUE\cf4 \strokec4  (galaxy_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: galaxy galaxy_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  galaxy_pkey \cf5 \strokec5 PRIMARY\cf4 \strokec4  \cf5 \strokec5 KEY\cf4 \strokec4  (galaxy_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon moon_moon_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  moon_moon_id_key \cf5 \strokec5 UNIQUE\cf4 \strokec4  (moon_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon moon_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  moon_pkey \cf5 \strokec5 PRIMARY\cf4 \strokec4  \cf5 \strokec5 KEY\cf4 \strokec4  (moon_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet planet_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  planet_name_key \cf5 \strokec5 UNIQUE\cf4 \strokec4  (\cf5 \strokec5 name\cf4 \strokec4 );\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet planet_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  planet_pkey \cf5 \strokec5 PRIMARY\cf4 \strokec4  \cf5 \strokec5 KEY\cf4 \strokec4  (planet_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star star_galaxy_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  star_galaxy_id_key \cf5 \strokec5 UNIQUE\cf4 \strokec4  (galaxy_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star star_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  star_pkey \cf5 \strokec5 PRIMARY\cf4 \strokec4  \cf5 \strokec5 KEY\cf4 \strokec4  (star_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: asteroid asteroid_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 asteroid\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  asteroid_planet_id_fkey \cf5 \strokec5 FOREIGN KEY\cf4 \strokec4  (planet_id) \cf5 \strokec5 REFERENCES\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4 (planet_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 moon\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  moon_planet_id_fkey \cf5 \strokec5 FOREIGN KEY\cf4 \strokec4  (planet_id) \cf5 \strokec5 REFERENCES\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \strokec4 (planet_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: planet planet_star_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 planet\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  planet_star_id_fkey \cf5 \strokec5 FOREIGN KEY\cf4 \strokec4  (star_id) \cf5 \strokec5 REFERENCES\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \strokec4 (star_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- Name: star star_galaxy_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 ALTER\cf4 \strokec4  \cf5 \strokec5 TABLE\cf4 \strokec4  ONLY \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 star\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 ADD\cf4 \strokec4  \cf5 \strokec5 CONSTRAINT\cf4 \strokec4  star_galaxy_id_fkey \cf5 \strokec5 FOREIGN KEY\cf4 \strokec4  (galaxy_id) \cf5 \strokec5 REFERENCES\cf4 \strokec4  \cf9 \strokec9 public\cf4 \strokec4 .\cf9 \strokec9 galaxy\cf4 \strokec4 (galaxy_id);\cb1 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 -- PostgreSQL database dump complete\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 --\cf4 \cb1 \strokec4 \
-\
-\
-}
+-- Dumped from database version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)
+-- Dumped by pg_dump version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+DROP DATABASE universe;
+--
+-- Name: universe; Type: DATABASE; Schema: -; Owner: freecodecamp
+--
+
+CREATE DATABASE universe WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+
+
+ALTER DATABASE universe OWNER TO freecodecamp;
+
+\connect universe
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: asteroid; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.asteroid (
+    asteroid_id integer NOT NULL,
+    name character varying(20),
+    planet_id integer NOT NULL
+);
+
+
+ALTER TABLE public.asteroid OWNER TO freecodecamp;
+
+--
+-- Name: asteroid_asteroid_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.asteroid_asteroid_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.asteroid_asteroid_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: asteroid_asteroid_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.asteroid_asteroid_id_seq OWNED BY public.asteroid.asteroid_id;
+
+
+--
+-- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.galaxy (
+    galaxy_id integer NOT NULL,
+    name character varying(30) NOT NULL,
+    age_in_millions_of_years integer,
+    distance_from_earth integer,
+    apparent_magnitude numeric(3,1) NOT NULL,
+    constellation character varying(20)
+);
+
+
+ALTER TABLE public.galaxy OWNER TO freecodecamp;
+
+--
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.galaxy_galaxy_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.galaxy_galaxy_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
+
+
+--
+-- Name: moon; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.moon (
+    moon_id integer NOT NULL,
+    name character varying(20),
+    planet_id integer NOT NULL,
+    has_water boolean,
+    atmosphere text
+);
+
+
+ALTER TABLE public.moon OWNER TO freecodecamp;
+
+--
+-- Name: moon_moon_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.moon_moon_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.moon_moon_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: moon_moon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
+
+
+--
+-- Name: planet; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.planet (
+    planet_id integer NOT NULL,
+    name character varying(20),
+    description text,
+    has_life boolean,
+    is_spherical boolean,
+    star_id integer NOT NULL
+);
+
+
+ALTER TABLE public.planet OWNER TO freecodecamp;
+
+--
+-- Name: planet_planet_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.planet_planet_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.planet_planet_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: planet_planet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
+
+
+--
+-- Name: star; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.star (
+    star_id integer NOT NULL,
+    name character varying(20),
+    absolute_magnitude numeric(8,5),
+    galaxy_id integer NOT NULL,
+    distance_in_light_years integer
+);
+
+
+ALTER TABLE public.star OWNER TO freecodecamp;
+
+--
+-- Name: star_star_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.star_star_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.star_star_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: star_star_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
+
+
+--
+-- Name: asteroid asteroid_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.asteroid ALTER COLUMN asteroid_id SET DEFAULT nextval('public.asteroid_asteroid_id_seq'::regclass);
+
+
+--
+-- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('public.galaxy_galaxy_id_seq'::regclass);
+
+
+--
+-- Name: moon moon_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon ALTER COLUMN moon_id SET DEFAULT nextval('public.moon_moon_id_seq'::regclass);
+
+
+--
+-- Name: planet planet_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet ALTER COLUMN planet_id SET DEFAULT nextval('public.planet_planet_id_seq'::regclass);
+
+
+--
+-- Name: star star_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.star_star_id_seq'::regclass);
+
+
+--
+-- Data for Name: asteroid; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.asteroid VALUES (1, NULL, 1);
+INSERT INTO public.asteroid VALUES (2, NULL, 3);
+INSERT INTO public.asteroid VALUES (3, NULL, 4);
+
+
+--
+-- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.galaxy VALUES (1, 'Milky Way', NULL, NULL, -6.5, 'Sagittarius');
+INSERT INTO public.galaxy VALUES (2, 'Large Magellanic Cloud', NULL, NULL, 0.9, 'Dorado/Mensa');
+INSERT INTO public.galaxy VALUES (3, 'Small Magellanic Cloud', NULL, NULL, 2.7, 'Tucana');
+INSERT INTO public.galaxy VALUES (4, 'Andromeda Galaxy', NULL, NULL, 3.4, 'Andromeda');
+INSERT INTO public.galaxy VALUES (5, 'Triangulum Galaxy', NULL, NULL, 5.7, 'Triangulum');
+INSERT INTO public.galaxy VALUES (6, 'Centaurus Galaxy', NULL, NULL, 6.8, 'Centaurus');
+
+
+--
+-- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.moon VALUES (7, 'Moon', 1, NULL, NULL);
+INSERT INTO public.moon VALUES (8, 'Europa', 1, NULL, NULL);
+INSERT INTO public.moon VALUES (9, 'Ganymede', 3, NULL, NULL);
+INSERT INTO public.moon VALUES (10, 'Titan', 4, NULL, NULL);
+INSERT INTO public.moon VALUES (11, 'lo', 5, NULL, NULL);
+INSERT INTO public.moon VALUES (12, 'Callisto', 6, NULL, NULL);
+INSERT INTO public.moon VALUES (13, 'Amalthea', 7, NULL, NULL);
+INSERT INTO public.moon VALUES (14, 'Mimas', 1, NULL, NULL);
+INSERT INTO public.moon VALUES (15, 'Adrastea', 3, NULL, NULL);
+INSERT INTO public.moon VALUES (16, 'Encladus', 4, NULL, NULL);
+INSERT INTO public.moon VALUES (17, 'Himalia', 5, NULL, NULL);
+INSERT INTO public.moon VALUES (18, 'Ananke', 6, NULL, NULL);
+INSERT INTO public.moon VALUES (19, 'Autonoe', 7, NULL, NULL);
+INSERT INTO public.moon VALUES (20, 'locaste', 1, NULL, NULL);
+INSERT INTO public.moon VALUES (21, 'Callirhoe', 3, NULL, NULL);
+INSERT INTO public.moon VALUES (22, 'Carme', 4, NULL, NULL);
+INSERT INTO public.moon VALUES (23, 'Hyperion', 5, NULL, NULL);
+INSERT INTO public.moon VALUES (24, 'Elara', 6, NULL, NULL);
+INSERT INTO public.moon VALUES (25, 'Cyllene', 8, NULL, NULL);
+INSERT INTO public.moon VALUES (26, 'Carpo', 9, NULL, NULL);
+
+
+--
+-- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.planet VALUES (1, 'Mercury', NULL, false, true, 1);
+INSERT INTO public.planet VALUES (3, 'Mars', NULL, false, true, 1);
+INSERT INTO public.planet VALUES (4, 'Venus', NULL, false, true, 2);
+INSERT INTO public.planet VALUES (5, 'Jupiter', NULL, false, true, 2);
+INSERT INTO public.planet VALUES (6, 'Saturn', NULL, false, true, 3);
+INSERT INTO public.planet VALUES (7, 'Uranus', NULL, false, true, 3);
+INSERT INTO public.planet VALUES (8, 'Neptun', NULL, false, true, 4);
+INSERT INTO public.planet VALUES (9, 'Earth', NULL, true, true, 4);
+INSERT INTO public.planet VALUES (10, 'Kepler', NULL, false, true, 5);
+INSERT INTO public.planet VALUES (11, 'Co-Rot', NULL, false, true, 5);
+INSERT INTO public.planet VALUES (12, 'Gliese', NULL, false, true, 6);
+INSERT INTO public.planet VALUES (13, 'HP', NULL, false, true, 6);
+
+
+--
+-- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.star VALUES (1, 'Sirius', 1.45000, 1, 9);
+INSERT INTO public.star VALUES (2, 'Canopus', -5.53000, 2, 313);
+INSERT INTO public.star VALUES (3, 'Arcturus', -0.31000, 3, 37);
+INSERT INTO public.star VALUES (4, 'Vega', 0.54000, 4, 25);
+INSERT INTO public.star VALUES (5, 'Capella', -0.48000, 5, 42);
+INSERT INTO public.star VALUES (6, 'Procyon', 2.68000, 6, 11);
+
+
+--
+-- Name: asteroid_asteroid_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.asteroid_asteroid_id_seq', 3, true);
+
+
+--
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
+
+
+--
+-- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 26, true);
+
+
+--
+-- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 13, true);
+
+
+--
+-- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
+
+
+--
+-- Name: asteroid asteroid_asteroid_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.asteroid
+    ADD CONSTRAINT asteroid_asteroid_id_key UNIQUE (asteroid_id);
+
+
+--
+-- Name: asteroid asteroid_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.asteroid
+    ADD CONSTRAINT asteroid_pkey PRIMARY KEY (asteroid_id);
+
+
+--
+-- Name: galaxy galaxy_galaxy_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT galaxy_galaxy_id_key UNIQUE (galaxy_id);
+
+
+--
+-- Name: galaxy galaxy_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT galaxy_pkey PRIMARY KEY (galaxy_id);
+
+
+--
+-- Name: moon moon_moon_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_moon_id_key UNIQUE (moon_id);
+
+
+--
+-- Name: moon moon_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_pkey PRIMARY KEY (moon_id);
+
+
+--
+-- Name: planet planet_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_name_key UNIQUE (name);
+
+
+--
+-- Name: planet planet_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_pkey PRIMARY KEY (planet_id);
+
+
+--
+-- Name: star star_galaxy_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_galaxy_id_key UNIQUE (galaxy_id);
+
+
+--
+-- Name: star star_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: asteroid asteroid_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.asteroid
+    ADD CONSTRAINT asteroid_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: planet planet_star_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_star_id_fkey FOREIGN KEY (star_id) REFERENCES public.star(star_id);
+
+
+--
+-- Name: star star_galaxy_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_galaxy_id_fkey FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
